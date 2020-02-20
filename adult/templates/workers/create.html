@@ -1,0 +1,104 @@
+{% load static %}
+
+<html lang="en">
+  {% include "header.html" %}
+
+  <body>
+    {% include "sidebar.html" %} 
+
+    <div class="main-content">
+      	<div class="header">
+        	<div class="container-fluid">
+          		<div class="header-body">
+            		<div class="row align-items-end">
+              			<div class="col">
+                			<h6 class="header-pretitle">
+                  				Workers
+                			</h6>
+                			<h1 class="header-title">
+                				Create Worker Profile
+                			</h1>
+              			</div>
+            		</div> 
+          		</div> 
+        	</div>
+      	</div>
+      	<div class="container-fluid">
+	        <div class="row">
+	          	<div class="col-lg-3">
+	          		<label for="twid">TWID*</label>
+	          		<input type="text" class="form-control" id="twid" disabled value="903G9801" style="background-color: #ecf0f1;">
+	          	</div>
+	          	<div class="col-lg-3">
+	          		<label for="name_of_worker">Name of Worker*</label>
+	          		<input type="text" class="form-control" id="name_of_worker">
+	          	</div>
+	          	<div class="col-lg-3">
+	          		<label for="worker_registration_date">Worker Registration Date*</label>
+	          		<input type="text" class="form-control" id="worker_registration_date">
+	          	</div>
+	          	<div class="col-lg-3">
+	          		<label for="created_by">Created By*</label>
+	          		<input type="text" class="form-control" id="created_by">
+	          	</div>
+	        </div>
+	        <div class="row mt-3">
+	          	<div class="col-lg-3">
+	          		<label for="gender">Gender*</label>
+	          		<select class="form-control" data-toggle="select" id="gender">
+	          		  <option>Male</option>
+	          		  <option>Female</option>
+	          		</select>
+	          	</div>
+	          	<div class="col-lg-3">
+	          		<label for="date_of_birth">Date of Birth*</label>
+	          		<input type="text" class="form-control" data-toggle="flatpickr" id="date_of_birth">
+	          	</div>
+	          	<div class="col-lg-3">
+	          		<label for="nationality">Nationality*</label>
+	          		<select class="form-control" data-toggle="select" id="gender">
+	          		  <option>Bangladesh</option>
+	          		  <option>India</option>
+	          		</select>
+	          	</div>
+	          	<div class="col-lg-3">
+	          		<label for="nationality_more">Explain if Nationality is Other</label>
+	          		<input type="text" class="form-control" id="nationality_more">
+	          	</div>
+	      	</div>
+	        <div class="row mt-3">
+	          	<div class="col-lg-3">
+	          		<label for="created_for">Created For</label>
+	          		<input type="text" class="form-control" id="created_for">
+	          	</div>
+	          	<div class="col-lg-3">
+	          		<label for="fin_number">FIN Number</label>
+	          		<input type="text" class="form-control" id="fin_number">
+	          	</div>
+	          	<div class="col-lg-3">
+	          		<label for="fin_previous">Previous TWIDs/FINs</label>
+	          		<input type="text" class="form-control" id="fin_previous">
+	          	</div>
+	          	<div class="col-lg-3">
+	          		<label for="when_first_arrive">When First Time in Singapore</label>
+	          		<input type="text" class="form-control" id="when_first_arrive">
+	          	</div>
+	      	</div>
+	      	<div class="row mt-3">
+	          	<div class="col-lg-3">
+	          		<label for="worker_flag">Worker Flag</label>
+	          		<input type="text" class="form-control" id="worker_flag">
+	          	</div>
+	      	</div>
+	      	<div class="row" style="margin-top: 1.5rem;">
+	        	<div class="col-lg-3">
+	        		<button type="button" class="btn btn-primary">Create Worker</button> <button type="button" class="btn btn-light">Abandon Worker Creation</button>
+	        	</div>
+	        </div>
+      	</div>
+    </div>
+
+    {% include "footer.html" %}
+    <script src="{% static 'js/flatpickr.js' %}"></script>
+  </body>
+</html>

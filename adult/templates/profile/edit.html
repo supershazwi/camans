@@ -1,0 +1,108 @@
+{% load static %}
+
+<html lang="en">
+  {% include "header.html" %}
+
+  <body>
+    {% include "sidebar.html" %} 
+
+    <div class="main-content">
+      	<div class="header">
+        	<div class="container-fluid">
+          		<div class="header-body">
+            		<div class="row align-items-end">
+              			<div class="col">
+                			<h6 class="header-pretitle">
+                  				Profile Details
+                			</h6>
+                			<h1 class="header-title">
+                				My Profile
+                			</h1>
+              			</div>
+                    <div class="col-12 col-md-auto mt-2 mt-md-0">
+                      <a href="/adult/profile" class="btn btn-danger d-block d-md-inline-block">
+                        Discard Changes
+                      </a>
+                    </div>
+                    <div class="col-12 col-md-auto mt-2 mt-md-0">
+                      <a href="/adult/profile/save" class="btn btn-primary d-block d-md-inline-block">
+                        Save
+                      </a>
+                    </div>
+            		</div> 
+          		</div> 
+        	</div>
+      	</div>
+      	<div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-2">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="card">
+                    <div class="card-body pb-2">
+                      <!-- Image -->
+
+                        <img src="{% static 'img/avatars/profiles/avatar-2.jpg' %}" alt="" style="width: 100%;" class="rounded" />
+
+
+                      <a href="#" class="btn btn-primary btn-block mb-3 mt-3">
+                        Upload Photo
+                      </a>
+                      <a href="#" class="btn btn-light btn-block mb-3 mt-3">
+                        Remove Photo
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div> 
+            <div class="col-lg-10">
+              <div class="card">
+                <div class="card-body pb-2">
+                  <div class="row">
+                    <div class="col-lg-3" style="margin-bottom: 1.5rem;">
+                      <strong>Actual Name</strong>
+                      <input type="text" class="form-control" id="actual_name" name="actual_name" value="{{ user.profile.actual_name }}">
+                    </div>
+                    <div class="col-lg-3" style="margin-bottom: 1.5rem;">
+                      <strong>Role</strong>
+                      <input type="text" class="form-control" id="role" name="role" disabled value="{{ user.profile.role.name }}" style="background-color: #ecf0f1;">
+                    </div>
+                    <div class="col-lg-3" style="margin-bottom: 1.5rem;">
+                      <strong>Phone Number</strong>
+                      <input type="text" class="form-control" id="phone_number" name="phone_number" value="{{ user.profile.phone_number }}">
+                    </div>
+                    <div class="col-lg-3" style="margin-bottom: 1.5rem;">
+                      <strong>Email</strong>
+                      <input type="text" class="form-control" id="email" name="email" value="{{ user.email }}">
+                    </div>
+                  </div>
+                  <hr class="mt-0"/>
+                  <div class="row">
+                    <div class="col-lg-3" style="margin-bottom: 1.5rem;">
+                      <strong>Alias</strong>
+                      <input type="text" class="form-control" id="alias" name="alias" value="{{ user.profile.alias }}">
+                    </div>
+                    <div class="col-lg-3" style="margin-bottom: 1.5rem;">
+                      <strong>Gender</strong>
+                      <input type="text" class="form-control" id="gender" name="gender" value="{{ user.profile.gender }}">
+                    </div>
+                    <div class="col-lg-3" style="margin-bottom: 1.5rem;">
+                      <strong>Nationality</strong>
+                      <input type="text" class="form-control" id="nationality" name="nationality" value="{{ user.profile.nationality }}">
+                    </div>
+                    <div class="col-lg-3" style="margin-bottom: 1.5rem;">
+                      <strong>NRIC</strong>
+                      <input type="text" class="form-control" id="nric" name="nric" value="{{ user.profile.nric }}">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      	</div>
+    </div>
+
+    {% include "footer.html" %}
+  </body>
+</html>

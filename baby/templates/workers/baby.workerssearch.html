@@ -1,0 +1,61 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  {% include "header.html" %}
+
+  <body>
+    {% include "baby.sidebar.html" %} 
+
+    <div class="main-content">
+      <div class="header">
+        <div class="container-fluid">
+            <div class="header-body">
+              <div class="row align-items-end">
+                  <div class="col">
+                    <h6 class="header-pretitle">
+                      Workers
+                    </h6>
+                    <h1 class="header-title">
+                      Search Worker
+                    </h1>
+                  </div>
+              </div> 
+            </div> 
+        </div>
+      </div>
+      <div class="container-fluid">
+          <div class="row">
+              <div class="col-lg-3">
+                <label for="twid">TWID</label>
+                <input type="text" class="form-control form-control-lg" id="twid">
+              </div>
+          </div>
+          <div class="row mt-3">
+              <div class="col-lg-3">
+                <label for="name">Name</label>
+                <input type="text" class="form-control form-control-lg" id="name">
+              </div>
+          </div>
+          <div class="row mt-3">
+              <div class="col-lg-3">
+                <label for="date_of_birth">Date of Birth</label>
+                <input type="text" class="form-control form-control-lg" id="date_of_birth">
+              </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-lg-3">
+                <button type="button" class="btn-block btn btn-primary btn-lg">Search</button>
+              </div>
+          </div>
+          <div class="row mt-3">
+              <div class="col-lg-3">
+                <button type="button" class="btn-block btn btn-light btn-lg">Reset Values</button>
+              </div>
+            </div>
+        </div>
+    </div>
+
+    {% include "footer.html" %}
+  </body>
+</html>

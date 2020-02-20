@@ -1,0 +1,129 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  {% include "header.html" %}
+
+  <body>
+    {% include "baby.sidebar.html" %} 
+
+    <div class="main-content">
+      <div class="header">
+        <div class="container-fluid">
+            <div class="header-body">
+              <div class="row align-items-end">
+                  <div class="col">
+                    <h6 class="header-pretitle">
+                        Baby Camans
+                    </h6>
+                    <h1 class="header-title">
+                      Control Center
+                    </h1>
+                  </div>
+              </div> 
+            </div> 
+        </div>
+      </div>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-6 col-xs-6" style="width: 50%;">
+            <a href="/baby/workers/search">
+              <div class="card">
+                <div class="card-body" style="text-align: center;">
+                  <div class="row mb-4">
+                    <div class="col">
+                      <img
+                        src="{% static 'img/focus.svg' %}"
+                        style="width: 7.5rem;"
+                      />
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <span class="h2 mb-0">
+                        Search Worker
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-6 col-xs-6" style="width: 50%;">
+            <a href="/baby/case-operations">
+              <div class="card">
+                <div class="card-body" style="text-align: center;">
+                  <div class="row mb-4">
+                    <div class="col">
+                      <img
+                        src="{% static 'img/case.svg' %}"
+                        style="width: 7.5rem;"
+                      />
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <span class="h2 mb-0">
+                        Case Operations
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6 col-xs-6" style="width: 50%;">
+            <a href="/baby/benefits/enable">
+              <div class="card">
+                <div class="card-body" style="text-align: center;">
+                  <div class="row mb-4">
+                    <div class="col">
+                      <img
+                        src="{% static 'img/enable-benefit.svg' %}"
+                        style="width: 7.5rem;"
+                      />
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <span class="h2 mb-0">
+                        Enable Benefit
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-6 col-xs-6" style="width: 50%;">
+            <a href="/baby/benefits">
+              <div class="card">
+                <div class="card-body" style="text-align: center;">
+                  <div class="row mb-4">
+                    <div class="col">
+                      <img
+                        src="{% static 'img/review-benefits.svg' %}"
+                        style="width: 7.5rem;"
+                      />
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <span class="h2 mb-0">
+                        Review Benefits
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% include "footer.html" %}
+  </body>
+</html>

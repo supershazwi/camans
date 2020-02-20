@@ -1,0 +1,279 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  {% include "header.html" %}
+
+  <body>
+    {% include "baby.sidebar.html" %} 
+
+    <div class="main-content">
+      <div class="header">
+        <div class="container-fluid">
+            <div class="header-body">
+              <div class="row align-items-end">
+                  <div class="col">
+                    <h6 class="header-pretitle">
+                      Case Operations
+                    </h6>
+                    <h1 class="header-title">
+                      Worker Profile
+                    </h1>
+                  </div>
+              </div> 
+            </div> 
+        </div>
+      </div>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-3">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="card">
+                  <div class="card-body pb-2">
+                    <!-- Image -->
+                    <img src="{% static 'img/avatars/profiles/avatar-2.jpg' %}" alt="" class="rounded" style="width: 100%;">
+
+                    <div class="list-group list-group-flush mt-3 mb-0">
+                      <div class="list-group-item" style="border-top: 0px; padding-top: 0px;">
+                        <div class="row align-items-center">
+                          <div class="col">
+                            <h2 class="mb-1">TWID</h2>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-auto">
+                            <!-- <p class="mb-0">{{ worker.twid }}</p> -->
+                            <h2 class="mb-0" style="font-weight: 400;">903F9001</h2>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="list-group-item">
+                        <div class="row align-items-center">
+                          <div class="col">
+                            <h2 class="mb-1">Name</h2>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-auto">
+                            <!-- <p class="mb-0">{{ worker.name }}</p> -->
+                            <h2 class="mb-0" style="font-weight: 400;">Mohammad Ali</h2>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="list-group-item">
+                        <div class="row align-items-center">
+                          <div class="col">
+                            <h2 class="mb-1">Phone</h2>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-auto">
+                            <!-- <p class="mb-0">93839053</p> -->
+                            <h2 class="mb-0" style="font-weight: 400;">93839053</h2>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="list-group-item">
+                        <div class="row align-items-center">
+                          <div class="col">
+                            <h2 class="mb-1">Employer</h2>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-auto">
+                            <!-- <p class="mb-0">Sheng Shiong Pte. Ltd.</p> -->
+                            <h2 class="mb-0" style="font-weight: 400;">Sheng Shiong Pte. Ltd.</h2>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="row">
+                  <div class="col-lg-6 col-xs-6" style="width: 50%;">
+                    <h2 class="">
+                      3 Other Jobs
+                    </h2>
+                  </div>
+                  <div class="col-lg-6 col-xs-6" style="width: 50%;">
+                    <a href="/adult/workers/check-twid" style="float: right;"><h2 class="">Create Job</h2></a>
+                  </div>
+                </div> 
+                <div class="card">
+                  <div class="card-body pb-2 pt-2">
+                    <!-- Image -->
+                    <div class="list-group list-group-flush mt-0 mb-0">
+                      <div class="list-group-item" style="border-top: 0px;">
+                        <div class="row align-items-center">
+                          <div class="col">
+                            <a class="h2 mb-0" href="#">
+                              Facebook Pte. Ltd.
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="list-group-item" style="border-top: 0px;">
+                        <div class="row align-items-center">
+                          <div class="col">
+                            <a class="h2 mb-0" href="#">
+                              Microsoft Pte. Ltd.
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="list-group-item" style="border-top: 0px;">
+                        <div class="row align-items-center">
+                          <div class="col">
+                            <a class="h2 mb-0" href="#">
+                              Old Chang Kee Pte. Ltd.
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> 
+          <div class="col-lg-9">
+            <div class="row">
+              <div class="col-lg-6 col-xs-6" style="width: 50%;">
+                <h2 class="">
+                  Actions
+                </h2>
+              </div>
+            </div> 
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="card">
+                  <div class="card-body pb-2 pt-2">
+                    <!-- Image -->
+                    <div class="list-group list-group-flush mt-0 mb-0">
+                      <div class="list-group-item" style="border-top: 0px;">
+                        <div class="row align-items-center">
+                          <div class="col">
+                            <a class="h2 mb-0" href="#">
+                              Case Summary
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="list-group-item" style="border-top: 0px;">
+                        <div class="row align-items-center">
+                          <div class="col">
+                            <a class="h2 mb-0" href="#">
+                              Add or Replace Profile Picture
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="list-group-item" style="border-top: 0px;">
+                        <div class="row align-items-center">
+                          <div class="col">
+                            <a class="h2 mb-0" href="#">
+                              Issue Benefit
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="list-group-item" style="border-top: 0px;">
+                        <div class="row align-items-center">
+                          <div class="col">
+                            <a class="h2 mb-0" href="#">
+                              List Benefits
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="list-group-item" style="border-top: 0px;">
+                        <div class="row align-items-center">
+                          <div class="col">
+                            <a class="h2 mb-0" href="#">
+                              Issue TWID Card
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="list-group-item" style="border-top: 0px;">
+                        <div class="row align-items-center">
+                          <div class="col">
+                            <a class="h2 mb-0" href="#">
+                              Withdraw TWID Card
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-6 col-xs-6" style="width: 50%;">
+                <h2 class="">
+                  2 Problems under Sheng Shiong Pte. Ltd. 
+                </h2>
+              </div>
+              <div class="col-lg-6 col-xs-6" style="width: 50%;">
+                <a href="/adult/workers/check-twid" style="float: right;"><h2 class="">Create Problem</h2></a>
+              </div>
+            </div> 
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="card mt-1">
+                  <div class="card-body" style="padding: 0;">
+                    <div class="table-responsive" data-toggle="lists" data-options='{"valueNames": ["facepic", "twid", "name-of-worker", "date-of-birth", "employer", "problem", "lead-case-worker", "auxiliary-case-worker", "clan-name", "problem-reg-date"]}'>
+                      <table class="table table-sm mb-0">
+                        <thead>
+                          <tr>
+                            <th scope="col">
+                              <a href="#" class="text-muted sort" data-sort="problem">Problem</a>
+                            </th>
+                            <th scope="col">
+                              <a href="#" class="text-muted sort" data-sort="lead-case-worker">Lead Case Worker</a>
+                            </th>
+                            <th scope="col">
+                              <a href="#" class="text-muted sort" data-sort="auxiliary-case-worker">Auxiliary Case Worker</a>
+                            </th>
+                            <th scope="col">
+                              <a href="#" class="text-muted sort" data-sort="date-problem-registered">Date Problem Registered</a>
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody class="list">
+                          <tr>
+                            <td class="problem">Salary</td>
+                            <td class="lead-case-worker">Muhammad Alfiyan</td>
+                            <td class="auxiliary-case-worker">N.A.</td>
+                            <td class="problem-reg-date">2020 Jan 28</td>
+                          </tr>
+                          <tr>
+                            <td class="problem">Injury, Work</td>
+                            <td class="lead-case-worker">Muhammad Alfiyan</td>
+                            <td class="auxiliary-case-worker">N.A.</td>
+                            <td class="problem-reg-date">2020 Jan 01</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% include "footer.html" %}
+  </body>
+</html>

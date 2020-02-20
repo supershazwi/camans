@@ -1,0 +1,75 @@
+{% load static %}
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1.0, user-scalable=0" />
+    <meta name="description" content="TWC2 Camans." />
+
+    <link rel="stylesheet" href="{% static 'fonts/feather/feather.css' %}" />
+    <link rel="stylesheet" href="{% static 'libs/flatpickr/dist/flatpickr.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'libs/quill/dist/quill.core.css' %}" />
+    <link rel="stylesheet" href="{% static 'libs/highlightjs/styles/vs2015.css' %}" />
+
+    <link href="https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'css/theme.css' %}" id="stylesheetLight">
+    
+    <title>Camans v2</title>
+
+  </head>
+  <body class="d-flex align-items-center bg-auth">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-5 col-xl-4 my-5">
+          
+          <h1 class="display-4 text-center mb-5">
+            Login
+          </h1>
+          
+          <p class="text-muted text-center mb-5">
+
+          </p>
+          
+          <form action="/login" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="next" value="{{ next }}" />
+            {% if error %}
+            <div class="alert alert-danger" role="alert">
+              <strong>{{error}}
+            </div>
+            {% endif %}
+            <div class="form-group">
+              <label>Email Address</label>
+              <input type="email" class="form-control form-control-lg" placeholder="Name@address.com" name="email">
+              {{ form.email.errors }}
+            </div>
+            <div class="form-group">
+              <div class="row">
+                <div class="col">
+                  <label>Password</label>
+                </div>
+                <div class="col-auto">
+                  <a href="password-reset.html" class="form-text small text-muted">
+                    Forgot password?
+                  </a>
+                </div>
+              </div> 
+              <div class="input-group input-group-merge">
+                <input type="password" class="form-control form-control-lg" placeholder="Enter your password" name="password">
+                {{ form.password.errors }}
+              </div>
+            </div>
+            <button class="btn btn-lg btn-block btn-primary mb-3" type="submit">
+              Login
+            </button>
+            <div class="text-center">
+              <small class="text-muted text-center">
+                <!-- Don't have an account yet? <a href="/register">Register</a>. -->
+              </small>
+            </div>
+          </form>
+        </div>
+      </div> 
+    </div> 
+  </body>
+</html>

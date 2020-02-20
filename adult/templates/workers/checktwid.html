@@ -1,0 +1,155 @@
+{% load static %}
+
+<html lang="en">
+  {% include "header.html" %}
+
+  <body>
+    {% include "sidebar.html" %} 
+
+    <div class="main-content">
+      	<div class="header">
+        	<div class="container-fluid">
+          		<div class="header-body">
+            		<div class="row align-items-end">
+              			<div class="col">
+                			<h6 class="header-pretitle">
+                  				Workers
+                			</h6>
+                			<h1 class="header-title">
+                				Compose TWID
+                			</h1>
+              			</div>
+            		</div> 
+          		</div> 
+        	</div>
+      	</div>
+      	<div class="container-fluid">
+	        <div class="row">
+	          	<div class="col-lg-3">
+	          		<label for="twid_first_portion">Last 3 numerals + Letter of FIN</label>
+	          		<input type="text" class="form-control" id="twid_first_portion">
+	          	</div>
+	        </div>
+	        <div class="row mt-3">
+	          	<div class="col-lg-3">
+	          		<label for="year_of_birth">Year of Birth (4 digits)</label>
+	          		<input type="text" class="form-control" id="year_of_birth">
+	          	</div>
+	      	</div>
+	        <div class="row mt-3">
+	        	<div class="col-lg-3">
+	          		<button type="button" class="form-control btn btn-primary">Compose TWID</button>
+	          	</div>
+	        </div>
+	        <div class="row mt-3">
+	          	<div class="col-lg-3">
+	          		<button type="button" class="form-control btn btn-light">Generate Temp TWID</button>
+	          	</div>
+          	</div>
+      	</div>
+      	<div class="container-fluid">
+      		<div class="header-body">
+        		<div class="row align-items-end">
+              		<div class="col">
+                		<h1 class="header-title">
+                			Are you sure it is not one of these persons?
+                		</h1>
+              		</div>
+              		<div class="col">
+              			<a href="/adult/workers/create" style="float: right;">Confirm & continue create</a>
+              			<a href="/adult" style="float: right; margin-right: 1rem;">Abandon & don't create</a>
+              		</div>
+            	</div> 
+          	</div> 
+          	<div class="card mt-4">
+          		<div class="card-body" style="padding: 0;">
+          			<div class="table-responsive" data-toggle="lists" data-options='{"valueNames": ["facepic", "twid", "name-of-worker", "date-of-birth", "employer", "problem", "lead-case-worker", "auxiliary-case-worker", "clan-name", "problem-reg-date"]}'>
+					  <table class="table table-sm mb-0">
+					    <thead>
+					      <tr>
+					        <th scope="col">
+					          <a href="#" class="text-muted sort" data-sort="facepic">Facepic</a>
+					        </th>
+					        <th scope="col">
+					          <a href="#" class="text-muted sort" data-sort="twid">Twid</a>
+					        </th>
+					        <th scope="col">
+					          <a href="#" class="text-muted sort" data-sort="name-of-worker">Name of Worker</a>
+					        </th>
+					        <th scope="col">
+					          <a href="#" class="text-muted sort" data-sort="date-of-birth">Date of Birth</a>
+					        </th>
+					        <th scope="col">
+					          <a href="#" class="text-muted sort" data-sort="employer">Employer</a>
+					        </th>
+					        <th scope="col">
+					          <a href="#" class="text-muted sort" data-sort="problem">Problem</a>
+					        </th>
+					        <th scope="col">
+					          <a href="#" class="text-muted sort" data-sort="lead-case-worker">Lead Case Worker</a>
+					        </th>
+					        <th scope="col">
+					          <a href="#" class="text-muted sort" data-sort="auxiliary-case-worker">Auxiliary Case Worker</a>
+					        </th>
+					        <th scope="col">
+					          <a href="#" class="text-muted sort" data-sort="clan-name">Clan Name</a>
+					        </th>
+					        <th scope="col">
+					          <a href="#" class="text-muted sort" data-sort="problem-reg-date">Problem Reg Date</a>
+					        </th>
+					      </tr>
+					    </thead>
+					    <tbody class="list">
+					      <tr>
+					        <th scope="row" class="facepic">
+					        	<img src="{% static 'img/avatars/profiles/avatar-1.jpg' %}" class="avatar-img rounded" alt="..." style="width: 3rem; height: 3rem;" />
+					        </th>
+					        <td class="twid">903G9801</td>
+					        <td class="name-of-worker">Muhammad Ali bin Atami Lope</td>
+					        <td class="date-of-birth">1990 Aug 01</td>
+					        <td class="employer">Sheng Shiong Pte. Ltd.</td>
+					        <td class="problem">Salary</td>
+					        <td class="lead-case-worker">Muhammad Alfiyan</td>
+					        <td class="auxiliary-case-worker">N.A.</td>
+					        <td class="clan-name">Wutang Clan</td>
+					        <td class="problem-reg-date">2020 Jan 28</td>
+					      </tr>
+					      <tr>
+					        <th scope="row" class="facepic">
+					        	<img src="{% static 'img/avatars/profiles/avatar-1.jpg' %}" class="avatar-img rounded" alt="..." style="width: 3rem; height: 3rem;" />
+					        </th>
+					        <td class="twid">903G9801</td>
+					        <td class="name-of-worker">Ali bin Atami Lope</td>
+					        <td class="date-of-birth">1990 Aug 01</td>
+					        <td class="employer">Sheng Shiong Pte. Ltd.</td>
+					        <td class="problem">Salary</td>
+					        <td class="lead-case-worker">Muhammad Alfiyan</td>
+					        <td class="auxiliary-case-worker">N.A.</td>
+					        <td class="clan-name">Wutang Clan</td>
+					        <td class="problem-reg-date">2020 Jan 28</td>
+					      </tr>
+					      <tr>
+					        <th scope="row" class="facepic">
+					        	<img src="{% static 'img/avatars/profiles/avatar-1.jpg' %}" class="avatar-img rounded" alt="..." style="width: 3rem; height: 3rem;" />
+					        </th>
+					        <td class="twid">903G9801</td>
+					        <td class="name-of-worker">Atami Lope</td>
+					        <td class="date-of-birth">1990 Aug 01</td>
+					        <td class="employer">Sheng Shiong Pte. Ltd.</td>
+					        <td class="problem">Salary</td>
+					        <td class="lead-case-worker">Muhammad Alfiyan</td>
+					        <td class="auxiliary-case-worker">N.A.</td>
+					        <td class="clan-name">Wutang Clan</td>
+					        <td class="problem-reg-date">2020 Jan 28</td>
+					      </tr>
+					    </tbody>
+					  </table>
+					</div>
+          		</div>
+          	</div>
+    	</div>
+    </div>
+
+    {% include "footer.html" %}
+  </body>
+</html>

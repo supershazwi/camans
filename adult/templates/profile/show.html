@@ -1,0 +1,176 @@
+{% load static %}
+
+<html lang="en">
+  {% include "header.html" %}
+
+  <body>
+    {% include "sidebar.html" %} 
+
+    <div class="main-content">
+      	<div class="header">
+        	<div class="container-fluid">
+          		<div class="header-body">
+            		<div class="row align-items-end">
+              			<div class="col">
+                			<h6 class="header-pretitle">
+                  				Profile Details
+                			</h6>
+                			<h1 class="header-title">
+                				My Profile
+                			</h1>
+              			</div>
+                    <div class="col-12 col-md-auto mt-2 mt-md-0">
+                      <a href="/adult/profile/edit" class="btn btn-primary d-block d-md-inline-block">
+                        Edit
+                      </a>
+                    </div>
+            		</div> 
+          		</div> 
+        	</div>
+      	</div>
+      	<div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-2">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="card">
+                    <div class="card-body pb-2">
+                      <!-- Image -->
+                      <a href="team-overview.html" class="card-avatar avatar avatar-lg mx-auto" style="width: 12rem; height: 12rem;">
+                        <img src="{% static 'img/avatars/profiles/avatar-2.jpg' %}" alt="" class="avatar-img rounded">
+                      </a>
+
+                      <div class="list-group list-group-flush mb-0">
+                        <div class="list-group-item" style="border-top: 0px; padding-top: 0px;">
+                          <div class="row align-items-center">
+                            <div class="col">
+                              <strong>Actual Name</strong>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-auto">
+                              <p class="mb-0">{{ user.profile.actual_name }}</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="list-group-item">
+                          <div class="row align-items-center">
+                            <div class="col">
+                              <strong>Role</strong>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-auto">
+                              <p class="mb-0">{{ user.profile.role.name }}</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="list-group-item">
+                          <div class="row align-items-center">
+                            <div class="col">
+                              <strong>Phone Number</strong>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-auto">
+                              <p class="mb-0">{{ user.profile.phone_number }}</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="list-group-item">
+                          <div class="row align-items-center">
+                            <div class="col">
+                              <strong>Email</strong>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-auto">
+                              <p class="mb-0">{{ user.email }}</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="list-group-item">
+                          <div class="row align-items-center">
+                            <div class="col">
+                              <strong>Status</strong>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-auto">
+                              <p class="mb-0">{{ user.profile.status }}</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="list-group-item">
+                          <div class="row align-items-center">
+                            <div class="col">
+                              <strong>Datetime Last Login</strong>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-auto">
+                              <p class="mb-0">{{ user.profile.datetime_last_login }}</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div> 
+            <div class="col-lg-10">
+              <div class="card">
+                <div class="card-body pb-2">
+                  <div class="row">
+                    <div class="col-lg-3">
+                      <strong>Actual Name</strong>
+                      <p>{{ user.profile.actual_name }}</p>
+                    </div>
+                    <div class="col-lg-3">
+                      <strong>Role</strong>
+                      <p>{{ user.profile.role.name }}</p>
+                    </div>
+                    <div class="col-lg-3">
+                      <strong>Phone Number</strong>
+                      <p>{{ user.profile.phone_number }}</p>
+                    </div>
+                    <div class="col-lg-3">
+                      <strong>Email</strong>
+                      <p>{{ user.email }}</p>
+                    </div>
+                  </div>
+                  <hr class="mt-0"/>
+                  <div class="row">
+                    <div class="col-lg-3">
+                      <strong>Alias</strong>
+                      <p>{{ user.profile.alias }}</p>
+                    </div>
+                    <div class="col-lg-3">
+                      <strong>Gender</strong>
+                      <p>{{ user.profile.gender }}</p>
+                    </div>
+                    <div class="col-lg-3">
+                      <strong>Nationality</strong>
+                      <p>{{ user.profile.nationality }}</p>
+                    </div>
+                    <div class="col-lg-3">
+                      <strong>NRIC</strong>
+                      <p>{{ user.profile.nric }}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      	</div>
+    </div>
+
+    {% include "footer.html" %}
+  </body>
+</html>

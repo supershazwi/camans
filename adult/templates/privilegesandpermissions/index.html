@@ -1,0 +1,158 @@
+{% load static %}
+
+<html lang="en">
+  {% include "header.html" %}
+
+  <body>
+    {% include "sidebar.html" %} 
+
+    <div class="main-content">
+      	<div class="header">
+        	<div class="container-fluid">
+          		<div class="header-body">
+            		<div class="row align-items-end">
+              			<div class="col">
+                			<h6 class="header-pretitle">
+                  				Privileges & Permissions
+                			</h6>
+                			<h1 class="header-title">
+                				Master List
+                			</h1>
+              			</div>
+            		</div> 
+          		</div> 
+          		{% for table in tables %}
+          			<div class="card mt-4">
+		          		<div class="card-body" style="padding: 0;">
+		          			<div class="table-responsive">
+							  <table class="table table-sm mb-0">
+							    <thead>
+							      <tr>
+							        <th scope="col">
+							          <a href="#" class="" style="font-size: 1rem;">{{ table.name }}</a>
+							        </th>
+							        <th scope="col" colspan="4">
+							          <a href="#" class="text-muted sort">Vendor Staff</a>
+							        </th>
+							        <th scope="col" colspan="4">
+							          <a href="#" class="text-muted sort">Associate</a>
+							        </th>
+							        <th scope="col" colspan="4">
+							          <a href="#" class="text-muted sort">Specialist</a>
+							        </th>
+							        <th scope="col" colspan="4">
+							          <a href="#" class="text-muted sort">Manager</a>
+							        </th>
+							        <th scope="col" colspan="4">
+							          <a href="#" class="text-muted sort">Admin</a>
+							        </th>
+							      </tr>
+							      <tr>
+							        <th scope="col">
+							          <a href="#" class="text-muted sort">Field</a>
+							        </th>
+							        <th scope="col">
+							          <a href="#" class="text-muted sort">C</a>
+							        </th>
+							        <th scope="col">
+							          <a href="#" class="text-muted sort">R</a>
+							        </th>
+							        <th scope="col">
+							          <a href="#" class="text-muted sort">U</a>
+							        </th>
+							        <th scope="col">
+							          <a href="#" class="text-muted sort">D</a>
+							        </th>
+							        <th scope="col">
+							          <a href="#" class="text-muted sort">C</a>
+							        </th>
+							        <th scope="col">
+							          <a href="#" class="text-muted sort">R</a>
+							        </th>
+							        <th scope="col">
+							          <a href="#" class="text-muted sort">U</a>
+							        </th>
+							        <th scope="col">
+							          <a href="#" class="text-muted sort">D</a>
+							        </th>
+							        <th scope="col">
+							          <a href="#" class="text-muted sort">C</a>
+							        </th>
+							        <th scope="col">
+							          <a href="#" class="text-muted sort">R</a>
+							        </th>
+							        <th scope="col">
+							          <a href="#" class="text-muted sort">U</a>
+							        </th>
+							        <th scope="col">
+							          <a href="#" class="text-muted sort">D</a>
+							        </th>
+							        <th scope="col">
+							          <a href="#" class="text-muted sort">C</a>
+							        </th>
+							        <th scope="col">
+							          <a href="#" class="text-muted sort">R</a>
+							        </th>
+							        <th scope="col">
+							          <a href="#" class="text-muted sort">U</a>
+							        </th>
+							        <th scope="col">
+							          <a href="#" class="text-muted sort">D</a>
+							        </th>
+							        <th scope="col">
+							          <a href="#" class="text-muted sort">C</a>
+							        </th>
+							        <th scope="col">
+							          <a href="#" class="text-muted sort">R</a>
+							        </th>
+							        <th scope="col">
+							          <a href="#" class="text-muted sort">U</a>
+							        </th>
+							        <th scope="col">
+							          <a href="#" class="text-muted sort">D</a>
+							        </th>
+							      </tr>
+							    </thead>
+							    <tbody class="list">
+							    	{% for field in table.field_set.all %}
+								      <tr>
+								        <th scope="row" class="field">
+								        	{{ field.name }}
+								        </th>
+								        {% for permissionPrivilege in field.permissionprivilege_set.all %}
+								        	{% if permissionPrivilege.create == True %}
+								        		<td><input class="form-check-input" type="checkbox" value="" id="" style="margin-left: 0.1rem;" checked></td>
+								        	{% else %}
+								        		<td><input class="form-check-input" type="checkbox" value="" id="" style="margin-left: 0.1rem;"></td>
+								        	{% endif %}
+								        	{% if permissionPrivilege.read == True %}
+								        		<td><input class="form-check-input" type="checkbox" value="" id="" style="margin-left: 0.1rem;" checked></td>
+								        	{% else %}
+								        		<td><input class="form-check-input" type="checkbox" value="" id="" style="margin-left: 0.1rem;"></td>
+								        	{% endif %}
+								        	{% if permissionPrivilege.update == True %}
+								        		<td><input class="form-check-input" type="checkbox" value="" id="" style="margin-left: 0.1rem;" checked></td>
+								        	{% else %}
+								        		<td><input class="form-check-input" type="checkbox" value="" id="" style="margin-left: 0.1rem;"></td>
+								        	{% endif %}
+								        	{% if permissionPrivilege.delete == True %}
+								        		<td><input class="form-check-input" type="checkbox" value="" id="" style="margin-left: 0.1rem;" checked></td>
+								        	{% else %}
+								        		<td><input class="form-check-input" type="checkbox" value="" id="" style="margin-left: 0.1rem;"></td>
+								        	{% endif %}
+								        {% endfor %}
+								      </tr>
+	      							{% endfor %}
+							    </tbody>
+							  </table>
+							</div>
+		          		</div>
+		          	</div>
+          		{% endfor %}
+        	</div>
+      	</div>
+    </div>
+
+    {% include "footer.html" %}
+  </body>
+</html>

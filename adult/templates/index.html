@@ -1,0 +1,206 @@
+{% load static %}
+
+<html lang="en">
+  {% include "header.html" %}
+
+  <body>
+    {% include "sidebar.html" %} 
+
+    <div class="main-content">
+      	<div class="header">
+        	<div class="container-fluid">
+          		<div class="header-body">
+            		<div class="row align-items-end">
+              			<div class="col">
+                			<h6 class="header-pretitle">
+                  				Search Parameters
+                			</h6>
+                			<h1 class="header-title">
+                				Search
+                			</h1>
+              			</div>
+            		</div> 
+          		</div> 
+        	</div>
+      	</div>
+      	<div class="container-fluid">
+	        <div class="row">
+	          <div class="col-lg-3">
+	          	<label for="twid">TWID</label>
+	          	<input type="text" class="form-control" id="twid">
+	          </div>
+	          <div class="col-lg-3">
+	          	<label for="name_of_worker">Name of Worker</label>
+	          	<input type="text" class="form-control" id="name_of_worker">
+	          </div>
+	          <div class="col-lg-3">
+	          	<label for="employer">Employer</label>
+	          	<input type="text" class="form-control" id="employer">
+	          </div>
+	          <div class="col-lg-3">
+	          	<label for="problem">Problem</label>
+	          	<input type="text" class="form-control" id="problem">
+	          </div>
+	        </div>
+	        <div class="row mt-3">
+	          <div class="col-lg-3">
+	          	<label for="aggravating_issue">Aggravating Issue</label>
+	          	<input type="text" class="form-control" id="aggravating_issue">
+	          </div>
+	          <div class="col-lg-3">
+	          	<label for="sg_phone">Sg Phone</label>
+	          	<input type="text" class="form-control" id="sg_phone">
+	          </div>
+	          <div class="col-lg-3">
+	          	<label for="home_phone">Home Phone</label>
+	          	<input type="text" class="form-control" id="home_phone">
+	          </div>
+	          <div class="col-lg-3">
+	          	<label for="nationality">Nationality</label>
+	          	<input type="text" class="form-control" id="nationality">
+	          </div>
+	        </div>
+	        <div class="row mt-3">
+	          <div class="col-lg-3">
+	          	<label for="problem_start_registration_date">Problem Start Registration Date</label>
+	          	<input type="text" class="form-control" id="problem_start_registration_date">
+	          </div>
+	          <div class="col-lg-3">
+	          	<label for="problem_end_registration_date">Problem End Registration Date</label>
+	          	<input type="text" class="form-control" id="problem_end_registration_date">
+	          </div>
+	          <div class="col-lg-3">
+	          	<label for="lead_case_worker">Lead Case Worker</label>
+	          	<input type="text" class="form-control" id="lead_case_worker">
+	          </div>
+	          <div class="col-lg-3">
+	          	<label for="auxiliary_case_worker">Auxiliary Case Worker</label>
+	          	<input type="text" class="form-control" id="auxiliary_case_worker">
+	          </div>
+	        </div>
+	        <div class="row mt-3">
+	          <div class="col-lg-3">
+	          	<label for="interpreter_attached">Interpreter Attached</label>
+	          	<input type="text" class="form-control" id="interpreter_attached">
+	          </div>
+	          <div class="col-lg-3">
+	          	<label for="clan_name">Clan Name</label>
+	          	<input type="text" class="form-control" id="clan_name">
+	          </div>
+	        </div>
+	        <div class="row" style="margin-top: 1.5rem;">
+	        	<div class="col-lg-3">
+	        		<button type="button" class="btn btn-primary">Search Worker</button> <button type="button" class="btn btn-light">Reset Values</button>
+	        	</div>
+	        </div>
+	        <div class="row" style="margin-top: 0.5rem;">
+	        	<div class="col-lg-12">
+	        		<a href="#">Advanced Search</a>
+	        	</div>
+	        </div>
+      	</div>
+      	<div class="container-fluid">
+      		<div class="header-body">
+        		<div class="row align-items-end">
+              		<div class="col">
+                		<h1 class="header-title">
+                			Search Results
+                		</h1>
+              		</div>
+              		<div class="col">
+              			<a href="/adult/workers/check-twid" style="float: right;">Create Worker Profile</a>
+              		</div>
+            	</div> 
+          	</div> 
+          	<div class="card mt-4">
+          		<div class="card-body" style="padding: 0;">
+          			<div class="table-responsive" data-toggle="lists" data-options='{"valueNames": ["facepic", "twid", "name-of-worker", "date-of-birth", "employer", "problem", "lead-case-worker", "auxiliary-case-worker", "clan-name", "problem-reg-date"]}' style="border-radius: 0.5rem;">
+					  <table class="table table-sm mb-0">
+					    <thead>
+					      <tr>
+					        <th scope="col">
+					          <a href="#" class="text-muted sort" data-sort="facepic">Facepic</a>
+					        </th>
+					        <th scope="col">
+					          <a href="#" class="text-muted sort" data-sort="twid">Twid</a>
+					        </th>
+					        <th scope="col">
+					          <a href="#" class="text-muted sort" data-sort="name-of-worker">Name of Worker</a>
+					        </th>
+					        <th scope="col">
+					          <a href="#" class="text-muted sort" data-sort="date-of-birth">Date of Birth</a>
+					        </th>
+					        <th scope="col">
+					          <a href="#" class="text-muted sort" data-sort="employer">Employer</a>
+					        </th>
+					        <th scope="col">
+					          <a href="#" class="text-muted sort" data-sort="problem">Problem</a>
+					        </th>
+					        <th scope="col">
+					          <a href="#" class="text-muted sort" data-sort="lead-case-worker">Lead Case Worker</a>
+					        </th>
+					        <th scope="col">
+					          <a href="#" class="text-muted sort" data-sort="auxiliary-case-worker">Auxiliary Case Worker</a>
+					        </th>
+					        <th scope="col">
+					          <a href="#" class="text-muted sort" data-sort="clan-name">Clan Name</a>
+					        </th>
+					        <th scope="col">
+					          <a href="#" class="text-muted sort" data-sort="problem-reg-date">Problem Reg Date</a>
+					        </th>
+					      </tr>
+					    </thead>
+					    <tbody class="list">
+					      <tr>
+					        <th scope="row" class="facepic">
+					        	<img src="{% static 'img/avatars/profiles/avatar-1.jpg' %}" class="avatar-img rounded" alt="..." style="width: 3rem; height: 3rem;" />
+					        </th>
+					        <td class="twid">903G9801</td>
+					        <td class="name-of-worker">Muhammad Ali bin Atami Lope</td>
+					        <td class="date-of-birth">1990 Aug 01</td>
+					        <td class="employer">Sheng Shiong Pte. Ltd.</td>
+					        <td class="problem">Salary</td>
+					        <td class="lead-case-worker">Muhammad Alfiyan</td>
+					        <td class="auxiliary-case-worker">N.A.</td>
+					        <td class="clan-name">Wutang Clan</td>
+					        <td class="problem-reg-date">2020 Jan 28</td>
+					      </tr>
+					      <tr>
+					        <th scope="row" class="facepic">
+					        	<img src="{% static 'img/avatars/profiles/avatar-1.jpg' %}" class="avatar-img rounded" alt="..." style="width: 3rem; height: 3rem;" />
+					        </th>
+					        <td class="twid">903G9801</td>
+					        <td class="name-of-worker">Ali bin Atami Lope</td>
+					        <td class="date-of-birth">1990 Aug 01</td>
+					        <td class="employer">Sheng Shiong Pte. Ltd.</td>
+					        <td class="problem">Salary</td>
+					        <td class="lead-case-worker">Muhammad Alfiyan</td>
+					        <td class="auxiliary-case-worker">N.A.</td>
+					        <td class="clan-name">Wutang Clan</td>
+					        <td class="problem-reg-date">2020 Jan 28</td>
+					      </tr>
+					      <tr>
+					        <th scope="row" class="facepic">
+					        	<img src="{% static 'img/avatars/profiles/avatar-1.jpg' %}" class="avatar-img rounded" alt="..." style="width: 3rem; height: 3rem;" />
+					        </th>
+					        <td class="twid">903G9801</td>
+					        <td class="name-of-worker">Atami Lope</td>
+					        <td class="date-of-birth">1990 Aug 01</td>
+					        <td class="employer">Sheng Shiong Pte. Ltd.</td>
+					        <td class="problem">Salary</td>
+					        <td class="lead-case-worker">Muhammad Alfiyan</td>
+					        <td class="auxiliary-case-worker">N.A.</td>
+					        <td class="clan-name">Wutang Clan</td>
+					        <td class="problem-reg-date">2020 Jan 28</td>
+					      </tr>
+					    </tbody>
+					  </table>
+					</div>
+          		</div>
+          	</div>
+    	</div>
+    </div>
+
+    {% include "footer.html" %}
+  </body>
+</html>
