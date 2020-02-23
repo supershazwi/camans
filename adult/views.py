@@ -33,21 +33,26 @@ def workersshow(request, workerid):
 
 	subsidiary_tables = Table.objects.all().filter(subsidiary_to = 'workers')
 	for subsidiary_table in subsidiary_tables:
-		cursor = connection.cursor()
-		query = "SELECT twid_card_type, twid_card_serial_number, twid_card_printed_by FROM public.adult_%s WHERE worker_id = %s" % (subsidiary_table.database_table, workerid)
-		cursor.execute(query) 
 		subsidiary_table_row_dictionary = {}
+		field_values = []
+		cursor = connection.cursor()
+
+		query = "SELECT label, table_index, name FROM public.adult_field WHERE table_id = %s" % subsidiary_table.id
+		cursor.execute(query) 
+		
+		subsidiary_table_row_dictionary['columns'] = cursor.fetchall()
+		for (label, table_index, name) in subsidiary_table_row_dictionary['columns']:
+			field_values.append(name)
+		field_values = ','.join(field_values) 
+
+		query = "SELECT %s FROM public.adult_%s WHERE worker_id = %s" % (field_values, subsidiary_table.database_table, workerid)
+		cursor.execute(query) 
+
 		subsidiary_table_row_dictionary['key'] = subsidiary_table.name
 		subsidiary_table_row_dictionary['values'] = cursor.fetchall()
 		subsidiary_table_row_dictionary['count'] = len(subsidiary_table_row_dictionary['values'])
 
-		query = "SELECT label, table_index FROM public.adult_field WHERE table_id = %s" % subsidiary_table.id
-		cursor.execute(query) 
-		subsidiary_table_row_dictionary['columns'] = cursor.fetchall()
-
 		subsidiary_tables_rows.append(subsidiary_table_row_dictionary)
-
-	print(subsidiary_tables_rows)
 
 	context = {'worker': worker, 'subsidiary_tables': subsidiary_tables, 'subsidiary_tables_rows': subsidiary_tables_rows}
 
