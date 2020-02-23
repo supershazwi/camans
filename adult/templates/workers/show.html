@@ -6,6 +6,8 @@
   <body>
     {% include "sidebar.html" %} 
 
+    <input type="hidden" id="worker-id" value="{{ worker.id }}" />
+
     <div class="main-content">
       	<div class="header">
         	<div class="container-fluid">
@@ -21,10 +23,10 @@
               			</div>
                     <div class="col-12 col-md-auto mt-2 mt-md-0">
                       <a href="#!" class="btn btn-danger d-block d-md-inline-block">
-                        Discard
+                        <span class="fe fe-trash-2"></span> Delete Worker Profile
                       </a>
                       <a href="/adult/workers/{{ worker.id }}/edit" class="btn btn-primary d-block d-md-inline-block">
-                        Edit
+                        <span class="fe fe-edit"></span> Edit Worker Profile
                       </a>
                     </div>
             		</div> 
@@ -38,9 +40,9 @@
                 <div class="col-lg-12">
                   <div class="card">
                     <div class="card-header">
-                      <h2 class="card-header-title">
+                      <strong class="card-header-title">
                         Navigation Stub
-                      </h2>
+                      </strong>
                     </div>
                     <div class="card-body pb-2">
                       <!-- Image -->
@@ -122,21 +124,21 @@
                     <div class="card-header">
 
                       <!-- Title -->
-                      <h2 class="card-header-title">
+                      <strong class="card-header-title">
                         Job + Problem Breakdown
-                      </h2>
+                      </strong>
 
                       <!-- Caption -->
                       <span class="text-muted mr-3">
-                        <span class="badge badge-primary" style="font-size: .9375rem;">3</span> + <span class="badge badge-warning" style="font-size: .9375rem;">5</span>
+                        <span class="badge badge-primary" style="font-size: .8125rem;">3</span> + <span class="badge badge-warning" style="font-size: .8125rem;">5</span>
                       </span>
 
                     </div>
-                    <div class="card-body pb-2">
+                    <div class="card-body" style="padding: 0.5rem 1.5rem;">
 
                       <!-- List group -->
                       <div class="list-group list-group-flush mb-0">
-                        <div class="list-group-item" style="border-top: 0px; padding-top: 0px;">
+                        <div class="list-group-item">
                           <div class="row align-items-center">
                             <div class="col">
 
@@ -251,9 +253,9 @@
                     <div class="card-header">
 
                       <!-- Title -->
-                      <h2 class="card-header-title">
+                      <strong class="card-header-title">
                         Worker Information
-                      </h2>
+                      </strong>
 
                     </div>
                     <div class="card-body pb-2" style="padding-top: 1rem;">
@@ -334,154 +336,61 @@
                 <div class="col-lg-12">
                   <div class="card">
                     <div class="card-header">
-                      <h2 class="card-header-title">
+                      <strong class="card-header-title">
                         Worker Subsidiary Information
-                      </h2>
+                      </strong>
+                      <span class="text-muted">
+                        <a href="/adult/workers/{{ worker.id }}/twid/create" id="anchor-to-add" class="btn btn-primary btn-sm d-block d-md-inline-block">
+                          <span class="fe fe-plus-circle"></span> Create <span id="button-to-add">TWID</span>
+                        </a>
+                      </span>
                     </div>
                     <div class="card-body">
                       <div class="row">
                         <div class="col-3">
-                          <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                            <a class="nav-link active" id="v-pills-twid-tab" data-toggle="pill" href="#v-pills-twid" role="tab" aria-controls="v-pills-twid" aria-selected="true">TWID <span style="float: right;">6</span></a>
-                            <a class="nav-link" id="v-pills-nickname-tab" data-toggle="pill" href="#v-pills-nickname" role="tab" aria-controls="v-pills-nickname" aria-selected="false">Nickname <span style="float: right;">1</span></a>
-                            <a class="nav-link" id="v-pills-passport-tab" data-toggle="pill" href="#v-pills-passport" role="tab" aria-controls="v-pills-passport" aria-selected="false">Passport <span style="float: right;">1</span></a>
-                            <a class="nav-link" id="v-pills-sg-phone-number-tab" data-toggle="pill" href="#v-pills-sg-phone-number" role="tab" aria-controls="v-pills-sg-phone-number" aria-selected="false">SG Phone Number <span style="float: right;">1</span></a>
-                            <a class="nav-link" id="v-pills-home-country-number-tab" data-toggle="pill" href="#v-pills-home-country-number" role="tab" aria-controls="v-pills-home-country-number" aria-selected="false">Home Country Number <span style="float: right;">1</span></a>
-                            <a class="nav-link" id="v-pills-sg-address-tab" data-toggle="pill" href="#v-pills-sg-address" role="tab" aria-controls="v-pills-sg-address" aria-selected="false">SG Address <span style="float: right;">1</span></a>
-                            <a class="nav-link" id="v-pills-home-country-address-tab" data-toggle="pill" href="#v-pills-home-country-address" role="tab" aria-controls="v-pills-home-country-address" aria-selected="false">Home Country Address <span style="float: right;">1</span></a>
-                            <a class="nav-link" id="v-pills-digital-contacts-tab" data-toggle="pill" href="#v-pills-digital-contacts" role="tab" aria-controls="v-pills-digital-contacts" aria-selected="false">Digital Contacts <span style="float: right;">1</span></a>
-                            <a class="nav-link" id="v-pills-next-of-kin-tab" data-toggle="pill" href="#v-pills-next-of-kin" role="tab" aria-controls="v-pills-next-of-kin" aria-selected="false">Next of Kin <span style="float: right;">1</span></a>
-                            <a class="nav-link" id="v-pills-family-member-in-sg-tab" data-toggle="pill" href="#v-pills-family-member-in-sg" role="tab" aria-controls="v-pills-family-member-in-sg" aria-selected="false">Family Member in SG <span style="float: right;">1</span></a>
-                            <a class="nav-link" id="v-pills-friend-in-sg-tab" data-toggle="pill" href="#v-pills-friend-in-sg" role="tab" aria-controls="v-pills-friend-in-sg" aria-selected="false">Friend in SG <span style="float: right;">1</span></a>
-                            <a class="nav-link" id="v-pills-language-tab" data-toggle="pill" href="#v-pills-language" role="tab" aria-controls="v-pills-language" aria-selected="false">Language <span style="float: right;">1</span></a>
-                            <a class="nav-link" id="v-pills-bank-account-tab" data-toggle="pill" href="#v-pills-bank-account" role="tab" aria-controls="v-pills-bank-account" aria-selected="false">Bank Account <span style="float: right;">1</span></a>
+                          <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical" style="">
+                            {% for subsidiary_tables_row in subsidiary_tables_rows %}
+                              {% if forloop.counter0 == 0 %}
+                                <a class="nav-link active" id="v-pills-{{ subsidiary_tables_row.key }}-tab" data-toggle="pill" href="#v-pills-{{ subsidiary_tables_row.key }}" role="tab" aria-controls="v-pills-{{ subsidiary_tables_row.key }}" aria-selected="true" onclick="changeAddButtonName(this)" data-button-value="{{ subsidiary_tables_row.key }}">{{ subsidiary_tables_row.key }} <span style="float: right;">{{ subsidiary_tables_row.count }}</span></a>
+                              {% else %}
+                                <a class="nav-link" id="v-pills-{{ subsidiary_tables_row.key }}-tab" data-toggle="pill" href="#v-pills-{{ subsidiary_tables_row.key }}" role="tab" aria-controls="v-pills-{{ subsidiary_tables_row.key }}" onclick="changeAddButtonName(this)" data-button-value="{{ subsidiary_tables_row.key }}">{{ subsidiary_tables_row.key }} <span style="float: right;">{{ subsidiary_tables_row.count }}</span></a>
+                              {% endif %}
+                            {% endfor %}
                           </div>
                         </div>
                         <div class="col-9">
                           <div class="tab-content" id="v-pills-tabContent">
-                            <div class="tab-pane fade show active" id="v-pills-twid" role="tabpanel" aria-labelledby="v-pills-twid-tab">
-                              <div class="table-responsive" data-toggle="lists" data-options="{&quot;valueNames&quot;: [&quot;facepic&quot;, &quot;twid&quot;, &quot;name-of-worker&quot;, &quot;date-of-birth&quot;, &quot;employer&quot;, &quot;problem&quot;, &quot;lead-case-worker&quot;, &quot;auxiliary-case-worker&quot;, &quot;clan-name&quot;, &quot;problem-reg-date&quot;]}" style="border-radius: 0.5rem;">
-                                <table class="table table-sm mb-0">
-                                  <thead>
-                                    <tr>
-                                      <th scope="col">
-                                        <a href="#" class="text-muted sort" data-sort="twid-card-type">Action</a>
-                                      </th>
-                                      <th scope="col">
-                                        <a href="#" class="text-muted sort" data-sort="twid-card-type">Twid card type</a>
-                                      </th>
-                                      <th scope="col">
-                                        <a href="#" class="text-muted sort" data-sort="twid">Card serial number</a>
-                                      </th>
-                                      <th scope="col">
-                                        <a href="#" class="text-muted sort" data-sort="name-of-worker">Card printed date</a>
-                                      </th>
-                                      <th scope="col">
-                                        <a href="#" class="text-muted sort" data-sort="date-of-birth">Card printed by</a>
-                                      </th>
-                                      <th scope="col">
-                                        <a href="#" class="text-muted sort" data-sort="employer">Card issue date</a>
-                                      </th>
-                                      <th scope="col">
-                                        <a href="#" class="text-muted sort" data-sort="problem">Card issued by</a>
-                                      </th>
-                                      <th scope="col">
-                                        <a href="#" class="text-muted sort" data-sort="lead-case-worker">Card withdrawal date</a>
-                                      </th>
-                                      <th scope="col">
-                                        <a href="#" class="text-muted sort" data-sort="auxiliary-case-worker">Withdrawn by</a>
-                                      </th>
-                                      <th scope="col">
-                                        <a href="#" class="text-muted sort" data-sort="clan-name">Remarks</a>
-                                      </th>
-                                      <th scope="col">
-                                        <a href="#" class="text-muted sort" data-sort="twid-card-type">Action</a>
-                                      </th>
-                                    </tr>
-                                  </thead>
-                                  <tbody class="list">
-                                    <tr>
-                                      <td class="twid"><a href="#"><span class="fe fe-edit"></span></a></td>
-                                      <td class="twid">903G9801</td>
-                                      <td class="twid">903G9801</td>
-                                      <td class="name-of-worker">Muhammad Ali bin Atami Lope</td>
-                                      <td class="date-of-birth">1990 Aug 01</td>
-                                      <td class="employer">Sheng Shiong Pte. Ltd.</td>
-                                      <td class="problem">Salary</td>
-                                      <td class="lead-case-worker">Muhammad Alfiyan</td>
-                                      <td class="auxiliary-case-worker">N.A.</td>
-                                      <td class="clan-name">Wutang Clan</td>
-                                      <td class="twid"><a href="#"><span class="fe fe-edit"></span></a></td>
-                                    </tr>
-                                    <tr>
-                                      <td class="twid"><a href="#"><span class="fe fe-edit"></span></a></td>
-                                      <td class="twid">903G9801</td>
-                                      <td class="twid">903G9801</td>
-                                      <td class="name-of-worker">Muhammad Ali bin Atami Lope</td>
-                                      <td class="date-of-birth">1990 Aug 01</td>
-                                      <td class="employer">Sheng Shiong Pte. Ltd.</td>
-                                      <td class="problem">Salary</td>
-                                      <td class="lead-case-worker">Muhammad Alfiyan</td>
-                                      <td class="auxiliary-case-worker">N.A.</td>
-                                      <td class="clan-name">Wutang Clan</td>
-                                      <td class="twid"><a href="#"><span class="fe fe-edit"></span></a></td>
-                                    </tr>
-                                    <tr>
-                                      <td class="twid"><a href="#"><span class="fe fe-edit"></span></a></td>
-                                      <td class="twid">903G9801</td>
-                                      <td class="twid">903G9801</td>
-                                      <td class="name-of-worker">Muhammad Ali bin Atami Lope</td>
-                                      <td class="date-of-birth">1990 Aug 01</td>
-                                      <td class="employer">Sheng Shiong Pte. Ltd.</td>
-                                      <td class="problem">Salary</td>
-                                      <td class="lead-case-worker">Muhammad Alfiyan</td>
-                                      <td class="auxiliary-case-worker">N.A.</td>
-                                      <td class="clan-name">Wutang Clan</td>
-                                      <td class="twid"><a href="#"><span class="fe fe-edit"></span></a></td>
-                                    </tr>
-                                    <tr>
-                                      <td class="twid"><a href="#"><span class="fe fe-edit"></span></a></td>
-                                      <td class="twid">903G9801</td>
-                                      <td class="twid">903G9801</td>
-                                      <td class="name-of-worker">Muhammad Ali bin Atami Lope</td>
-                                      <td class="date-of-birth">1990 Aug 01</td>
-                                      <td class="employer">Sheng Shiong Pte. Ltd.</td>
-                                      <td class="problem">Salary</td>
-                                      <td class="lead-case-worker">Muhammad Alfiyan</td>
-                                      <td class="auxiliary-case-worker">N.A.</td>
-                                      <td class="clan-name">Wutang Clan</td>
-                                      <td class="twid"><a href="#"><span class="fe fe-edit"></span></a></td>
-                                    </tr>
-                                    <tr>
-                                      <td class="twid"><a href="#"><span class="fe fe-edit"></span></a></td>
-                                      <td class="twid">903G9801</td>
-                                      <td class="twid">903G9801</td>
-                                      <td class="name-of-worker">Muhammad Ali bin Atami Lope</td>
-                                      <td class="date-of-birth">1990 Aug 01</td>
-                                      <td class="employer">Sheng Shiong Pte. Ltd.</td>
-                                      <td class="problem">Salary</td>
-                                      <td class="lead-case-worker">Muhammad Alfiyan</td>
-                                      <td class="auxiliary-case-worker">N.A.</td>
-                                      <td class="clan-name">Wutang Clan</td>
-                                      <td class="twid"><a href="#"><span class="fe fe-edit"></span></a></td>
-                                    </tr>
-                                    <tr>
-                                      <td class="twid"><a href="#"><span class="fe fe-edit"></span></a></td>
-                                      <td class="twid">903G9801</td>
-                                      <td class="twid">903G9801</td>
-                                      <td class="name-of-worker">Muhammad Ali bin Atami Lope</td>
-                                      <td class="date-of-birth">1990 Aug 01</td>
-                                      <td class="employer">Sheng Shiong Pte. Ltd.</td>
-                                      <td class="problem">Salary</td>
-                                      <td class="lead-case-worker">Muhammad Alfiyan</td>
-                                      <td class="auxiliary-case-worker">N.A.</td>
-                                      <td class="clan-name">Wutang Clan</td>
-                                      <td class="twid"><a href="#"><span class="fe fe-edit"></span></a></td>
-                                    </tr>
-                                  </tbody>
-                                </table>
-                              </div>
-                            </div>
+                            {% for subsidiary_tables_row in subsidiary_tables_rows %}
+                              {% if forloop.counter0 == 0 %}
+                                <div class="tab-pane fade show active" id="v-pills-{{ subsidiary_tables_row.key }}" role="tabpanel" aria-labelledby="v-pills-{{ subsidiary_tables_row.key }}-tab">
+                                  <div class="table-responsive" data-toggle="lists" data-options="{&quot;valueNames&quot;: [&quot;facepic&quot;, &quot;twid&quot;, &quot;name-of-worker&quot;, &quot;date-of-birth&quot;, &quot;employer&quot;, &quot;problem&quot;, &quot;lead-case-worker&quot;, &quot;auxiliary-case-worker&quot;, &quot;clan-name&quot;, &quot;problem-reg-date&quot;]}" style="border-radius: 0.5rem;">
+                                    <table class="table table-sm mb-0">
+                                      <thead>
+                                        <tr>
+                                          {% for subsidiary_tables_row_column in subsidiary_tables_row.columns %}
+                                            <th scope="col">
+                                              <a href="#" class="text-muted sort" data-sort="twid-card-type">{{ subsidiary_tables_row_column.0 }}</a>
+                                            </th>
+                                          {% endfor %}
+                                        </tr>
+                                      </thead>
+                                      <tbody class="list">
+                                        {% for subsidiary_tables_row_value in subsidiary_tables_row.values %}
+                                          <tr>
+                                            {% for value in subsidiary_tables_row_value %}
+                                              <td>{{ value }}</td> 
+                                            {% endfor %}
+                                          </tr>
+                                        {% endfor %}
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                </div>
+                              {% else %}
+                                
+                              {% endif %}
+                            {% endfor %}
+                            
                             <div class="tab-pane fade" id="v-pills-nickname" role="tabpanel" aria-labelledby="v-pills-nickname-tab">..!!@@!@#!.</div>
                             <div class="tab-pane fade" id="v-pills-passport" role="tabpanel" aria-labelledby="v-pills-passport-tab">...</div>
                             <div class="tab-pane fade" id="v-pills-sg-phone-number" role="tabpanel" aria-labelledby="v-pills-sg-phone-number-tab">...</div>
@@ -505,7 +414,19 @@
           </div>
       	</div>
     </div>
+    <script type="text/javascript">
+      function changeAddButtonName(e) {
+        let innerHTML = e.innerHTML;
+        let buttonName = innerHTML.substring(0, innerHTML.indexOf("<") - 1);
+        document.getElementById("button-to-add").innerHTML = buttonName;
 
+        let workerId = document.getElementById("worker-id").value;
+        let anchorName = buttonName.replace(/\s+/g, '-').toLowerCase();
+        document.getElementById("anchor-to-add").href = "/adult/workers/" + workerId + "/" + anchorName + "/create";
+
+        return false;
+      }
+    </script>
     {% include "footer.html" %}
   </body>
 </html>

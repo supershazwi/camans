@@ -18,14 +18,19 @@ class Vendor(models.Model):
 
 class Table(models.Model):
 	name = models.CharField(max_length=500)
-	remarks = models.CharField(max_length=1000)
+	url_string = models.CharField(max_length=500, blank=True)
+	database_table = models.CharField(max_length=500, blank=True)
+	remarks = models.CharField(max_length=10000)
 	created_at = models.DateTimeField(auto_now_add=True)
 	updated_at = models.DateTimeField(auto_now=True)
+	subsidiary_to = models.CharField(max_length=500, blank=True)
 
 class Field(models.Model):
+	label = models.CharField(max_length=500, blank=True)
 	name = models.CharField(max_length=500)
 	kind = models.CharField(max_length=100)
-	remarks = models.CharField(max_length=1000)
+	table_index = models.IntegerField(blank=True, null=True)
+	remarks = models.CharField(max_length=10000)
 	dropdown = models.BooleanField(default=False)
 	table = models.ForeignKey(Table, on_delete=models.CASCADE)
 	created_at = models.DateTimeField(auto_now_add=True)
@@ -34,14 +39,14 @@ class Field(models.Model):
 class FieldValue(models.Model):
 	name = models.CharField(max_length=500)
 	kind = models.CharField(max_length=100)
-	remarks = models.CharField(max_length=1000)
+	remarks = models.CharField(max_length=10000)
 	field = models.ForeignKey(Field, on_delete=models.CASCADE)
 	created_at = models.DateTimeField(auto_now_add=True)
 	updated_at = models.DateTimeField(auto_now=True)
 
 class Role(models.Model):
 	name = models.CharField(max_length=500)
-	remarks = models.CharField(max_length=1000)
+	remarks = models.CharField(max_length=10000)
 	created_at = models.DateTimeField(auto_now_add=True)
 	updated_at = models.DateTimeField(auto_now=True)
 
@@ -77,7 +82,7 @@ class Worker(models.Model):
 	date_worker_registered = models.DateTimeField() 
 	date_of_birth = models.DateTimeField() 
 	when_first_arrive = models.CharField(max_length=100, blank=True)
-	twid = models.CharField(max_length=100) 
+	twid_string = models.CharField(max_length=100) 
 	created_at = models.DateTimeField(auto_now_add=True)
 	updated_at = models.DateTimeField(auto_now=True)
 	created_for = models.CharField(max_length=100, blank=True)
@@ -98,3 +103,25 @@ class PermissionPrivilege(models.Model):
 	delete = models.BooleanField()
 	created_at = models.DateTimeField(auto_now_add=True)
 	updated_at = models.DateTimeField(auto_now=True)
+
+class Twid(models.Model):
+	twid_card_type = models.CharField(max_length=100, blank=True)
+	twid_card_serial_number = models.CharField(max_length=100, blank=True)
+	date_twid_card_printed = models.DateTimeField() 
+	twid_card_printed_by = models.CharField(max_length=100, blank=True)
+	date_twid_card_issued = models.DateTimeField() 
+	twid_card_issued_by = models.CharField(max_length=100, blank=True)
+	date_twid_card_withdrawn = models.DateTimeField() 
+	twid_card_withdrawn_by = models.CharField(max_length=100, blank=True)
+	twid_card_remarks =  models.CharField(max_length=10000, blank=True)
+	created_at = models.DateTimeField(auto_now_add=True)
+	updated_at = models.DateTimeField(auto_now=True)
+	worker = models.ForeignKey(Worker, on_delete=models.CASCADE, null=True) 
+	table = models.ForeignKey(Table, on_delete=models.CASCADE, null=True) 
+
+class Nickname(models.Model):
+	nickname = models.CharField(max_length=100, blank=True)
+	created_at = models.DateTimeField(auto_now_add=True)
+	updated_at = models.DateTimeField(auto_now=True)
+	worker = models.ForeignKey(Worker, on_delete=models.CASCADE, null=True) 
+	table = models.ForeignKey(Table, on_delete=models.CASCADE, null=True) 

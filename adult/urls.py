@@ -6,6 +6,8 @@ app_name = 'adult'
 
 urlpatterns = [
 	path('privileges-and-permissions', views.privilegesandpermissionsindex, name='privilegesandpermissions.index'),
+	path('workers/<int:workerid>/<str:workersubsidiaryurlstring>/create', views.workerssubsidiarycreate, name='workers.subsidiarycreate'),
+	path('workers/<int:workerid>/edit', views.workersedit, name='workers.edit'),
 	path('workers/<int:workerid>', views.workersshow, name='workers.show'),
 	path('workers/create', views.workerscreate, name='workers.create'),
 	path('workers/check-twid', views.workerschecktwid, name='workers.checktwid'),

@@ -2,8 +2,9 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from django.db import connection
 
-from .models import Table, Field, PermissionPrivilege, Worker
+from .models import Table, Field, PermissionPrivilege, Worker, Twid
 # from .decorators import unauthenticated_user
 
 @login_required(login_url='/login')
@@ -28,9 +29,44 @@ def workerschecktwid(request):
 @login_required(login_url='/login')
 def workersshow(request, workerid):
 	worker = Worker.objects.get(pk = workerid)
-	context = {'worker': worker}
+	subsidiary_tables_rows = []
+
+	subsidiary_tables = Table.objects.all().filter(subsidiary_to = 'workers')
+	for subsidiary_table in subsidiary_tables:
+		cursor = connection.cursor()
+		query = "SELECT twid_card_type, twid_card_serial_number, twid_card_printed_by FROM public.adult_%s WHERE worker_id = %s" % (subsidiary_table.database_table, workerid)
+		cursor.execute(query) 
+		subsidiary_table_row_dictionary = {}
+		subsidiary_table_row_dictionary['key'] = subsidiary_table.name
+		subsidiary_table_row_dictionary['values'] = cursor.fetchall()
+		subsidiary_table_row_dictionary['count'] = len(subsidiary_table_row_dictionary['values'])
+
+		query = "SELECT label, table_index FROM public.adult_field WHERE table_id = %s" % subsidiary_table.id
+		cursor.execute(query) 
+		subsidiary_table_row_dictionary['columns'] = cursor.fetchall()
+
+		subsidiary_tables_rows.append(subsidiary_table_row_dictionary)
+
+	print(subsidiary_tables_rows)
+
+	context = {'worker': worker, 'subsidiary_tables': subsidiary_tables, 'subsidiary_tables_rows': subsidiary_tables_rows}
 
 	return render(request, 'workers/show.html', context)
+
+@login_required(login_url='/login')
+def workersedit(request, workerid):
+	worker = Worker.objects.get(pk = workerid)
+	context = {'worker': worker}
+
+	return render(request, 'workers/edit.html', context)
+
+@login_required(login_url='/login')
+def workerssubsidiarycreate(request, workerid, workersubsidiaryurlstring):
+	worker = Worker.objects.get(pk = workerid)
+	subsidiary_table = Table.objects.get(url_string = workersubsidiaryurlstring)
+	context = {'worker': worker, 'subsidiary_table': subsidiary_table}
+
+	return render(request, 'workers/subsidiaries/create.html', context)
 
 # privileges & permissions
 @login_required(login_url='/login')

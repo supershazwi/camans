@@ -1,0 +1,150 @@
+{% load static %}
+
+<html lang="en">
+  {% include "header.html" %}
+
+  <body>
+    {% include "sidebar.html" %} 
+
+    <div class="main-content">
+      	<div class="header">
+        	<div class="container-fluid">
+          		<div class="header-body">
+            		<div class="row align-items-end">
+              			<div class="col">
+                			<h6 class="header-pretitle">
+                  				WORKERS SUBSIDIARY TABLE
+                			</h6>
+                			<h1 class="header-title">
+                				Create {{ subsidiary_table.name }} Record
+                			</h1>
+              			</div>
+                    <div class="col-12 col-md-auto mt-2 mt-md-0">
+                      <a href="/adult/workers/{{ worker.id }}" class="btn btn-danger d-block d-md-inline-block">
+                        <span class="fe fe-trash-2"></span> Abandon {{ subsidiary_table.name }} Creation
+                      </a>
+                      <a href="/adult/workers/{{ worker.id }}/edit" class="btn btn-primary d-block d-md-inline-block">
+                        <span class="fe fe-edit"></span> Create {{ subsidiary_table.name }}
+                      </a>
+                    </div>
+            		</div> 
+          		</div> 
+        	</div>
+      	</div>
+      	<div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-3">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="card">
+                    <div class="card-header">
+                      <strong class="card-header-title">
+                        Navigation Stub
+                      </strong>
+                    </div>
+                    <div class="card-body pb-2">
+                      <!-- Image -->
+                      <img src="{% static 'img/avatars/profiles/avatar-2.jpg' %}" alt="" class="rounded" style="width: 100%;">
+
+                      <div class="list-group list-group-flush mt-3 mb-0">
+                        <div class="list-group-item" style="border-top: 0px; padding-top: 0px;">
+                          <div class="row align-items-center">
+                            <div class="col">
+                              <strong>TWID</strong>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-auto">
+                              <p class="mb-0">{{ worker.twid }}</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="list-group-item">
+                          <div class="row align-items-center">
+                            <div class="col">
+                              <strong>Name</strong>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-auto">
+                              <p class="mb-0">{{ worker.name }}</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="list-group-item">
+                          <div class="row align-items-center">
+                            <div class="col">
+                              <strong>Phone</strong>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-auto">
+                              <p class="mb-0">93839053</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="list-group-item">
+                          <div class="row align-items-center">
+                            <div class="col">
+                              <strong>Employer</strong>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-auto">
+                              <p class="mb-0">Sheng Shiong Pte. Ltd.</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="list-group-item">
+                          <div class="row align-items-center">
+                            <div class="col">
+                              <strong>Problem</strong>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-auto">
+                              <p class="mb-0">Salary Discrimination</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div> 
+            <div class="col-lg-9">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="card">
+                    <div class="card-header">
+                      <h2 class="card-header-title">
+                        {{ subsidiary_table.name }} Information
+                      </h2>
+                    </div>
+                    <div class="card-body" style="">
+                      <div class="row">
+                      	{% for subsidiary_table_field in subsidiary_table.field_set.all %}
+                        <div class="col-lg-3" style="margin-bottom: 1rem;">
+                          <strong>{{ subsidiary_table_field.label }}</strong>
+                          <input type="text" name="{{ subsidiary_table_field.name }}" id="{{ subsidiary_table_field.name }}" class="form-control"/>
+                        </div>
+                        {% endfor %}
+                       </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      	</div>
+    </div>
+
+    {% include "footer.html" %}
+  </body>
+</html>
